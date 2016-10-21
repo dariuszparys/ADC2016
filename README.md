@@ -101,3 +101,22 @@ app.Use( async ( context, next ) =>
 }
 ```
 
+## Show alternate configurations using `Map`
+
+Add the following function to `Startup.cs`
+
+```
+public void ConfigureAlternate(IApplicationBuilder app)
+{
+    app.Run( async context => 
+    {
+        await context.Response.WriteAsync("Welcome to the Advanced Developers Conference 2016!");
+    });
+}
+```
+
+Register the route in the `Configure` function
+
+```
+app.Map( "/message", ConfigureAlternate );
+```
