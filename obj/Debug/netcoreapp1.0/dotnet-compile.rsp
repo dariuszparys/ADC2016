@@ -118,4 +118,6 @@
 --reference:C:\Users\devel\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\devel\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
 C:\temp\dr2\Program.cs
+C:\temp\dr2\RequestAdExtensions.cs
+C:\temp\dr2\RequestAdMiddleware.cs
 C:\temp\dr2\Startup.cs

@@ -20,6 +20,8 @@ namespace DryRun
                 logger.LogInformation("Pipeline is returning");
             });
 
+            app.UseRequestAds();
+
             app.Run(context =>
             {
                 logger.LogInformation("WebRequest coming in...");
