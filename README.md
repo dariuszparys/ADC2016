@@ -62,5 +62,28 @@ namespace DryRun
 }
 ```
 
-Start the app through the Visual Studio Code Debugger
+Start the app through the Visual Studio Code Debugger.
 
+## Add Logging
+
+Goto `Startup.cs` and change the function signature to the following
+
+```
+public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+```
+
+Add logging to the application
+
+```
+loggerFactory.AddConsole();
+var logger = loggerFactory.CreateLogger("DEMO");
+// inside request
+...
+logger.LogInformation("WebRequest is coming...");
+```
+
+To have output shown on the console you need the Console Logging extension, add it to `project.json`
+
+```
+"Microsoft.Extensions.Logging.Console": "1.0.0"
+```
