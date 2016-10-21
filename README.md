@@ -87,3 +87,17 @@ To have output shown on the console you need the Console Logging extension, add 
 ```
 "Microsoft.Extensions.Logging.Console": "1.0.0"
 ```
+
+## Demonstrating Middleware workflow
+
+Just add a inline middleware method with log functions to demonstrate the pipeline approach
+
+```
+app.Use( async ( context, next ) => 
+{
+    logger.LogInformation( "My custom middleware" );
+    await next.Invoke();
+    logger.LogInformation( "Pipeline is returning" );
+}
+```
+
