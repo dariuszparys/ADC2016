@@ -1,11 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace DryRun
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<IUnknownService, UnknownService>();
+            services.AddMvc();
+        }
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
@@ -21,6 +27,8 @@ namespace DryRun
             });
 
             app.UseRequestAds();
+
+            app.UseMvcWithDefaultRoute();
 
             app.Run(context =>
             {
